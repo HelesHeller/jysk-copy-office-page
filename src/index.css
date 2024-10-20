@@ -1,11 +1,13 @@
+/* Основные стили для страницы */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;
-  color: #333;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
+/* Стили для навигации */
 nav {
   background-color: #003366;
   padding: 10px 0;
@@ -30,25 +32,36 @@ nav ul li a {
   font-size: 18px;
 }
 
-.category-page {
-  padding: 40px 20px;
-  text-align: center;
+nav ul li a:hover {
+  color: #cccccc;
 }
 
+/* Стиль заголовка страницы */
+.category-page h1 {
+  font-size: 32px;
+  color: #003366;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Стили для списка категорий */
 .category-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
+/* Стили для карточек категорий */
 .category-item {
   width: 250px;
   margin: 20px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -70,6 +83,21 @@ nav ul li a {
   margin: 15px 0;
   color: #003366;
   padding: 0 10px;
+}
+
+/* Стили для кнопок */
+button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005b99;
 }
 
 footer {

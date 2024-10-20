@@ -1,19 +1,36 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CategoryPage from './components/CategoryPage';
-import './index.css';
+import CategoryProducts from './components/CategoryProducts';
+import Cart from './components/Cart';
 
-function App() {
+const App = () => {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
+
     return (
         <Router>
-            <Navbar />
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Офис и подкатегории</Link>
+                    </li>
+                    <li>
+                        <Link to="/cart">Корзина ({cart.length})</Link>
+                    </li>
+                </ul>
+            </nav>
+
             <Routes>
-                <Route path="/office" element={<CategoryPage />} />
-                {/* Добавьте маршруты для других категорий */}
+                <Route path="/" element={<CategoryPage />} />
+                <Route path="/category/:categoryName" element={<CategoryProducts addToCart={addToCart} />} />
+                <Route path="/cart" element={<Cart cart={cart} />} />
             </Routes>
         </Router>
     );
-}
+};
 
 export default App;
